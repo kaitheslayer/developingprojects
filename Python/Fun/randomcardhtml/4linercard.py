@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 # Simple random card webpage
+# Extract c.zip before use
 
 # Import Random Functions
 import random
