@@ -1,3 +1,18 @@
+import random
+import os 
+import datetime
+
+
+# Functions to utilise
+
+def randomcard ():
+  "Generate a random card"
+  ctouse = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+  stouse = ['♥', '♠', '♣', '♦']
+  random.choice(ctouse, stouse)
+  return 
+  
+  
 
 print ("______ _       ___  _____  _   __    ___  ___  _____  _   __")
 print ("| ___ \ |     / _ \/  __ \| | / /   |_  |/ _ \/  __ \| | / /")
@@ -29,12 +44,9 @@ if yn == ("N"):
     print ()
     print ("I am the Dealer and you are a player, your goal is to beat my hand without going over 21")
 
-import random
 
-ctouse = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-stouse = ['♥', '♠', '♣', '♦']
 
-random.choice:(ctouse, stouse)
+
 
 
 if yn == ("Y"):
