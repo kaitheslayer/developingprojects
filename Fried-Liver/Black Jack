@@ -9,14 +9,36 @@ def randomcard ():
   "Generate a random card"
   ctouse = random.choice(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])
   stouse = random.choice(['♥', '♠', '♣', '♦'])
-  global rcard
-  rcard = ctouse + stouse
+  global rcard1 
+  global rcard2 
+  global rcard1t 
+  global rcard2t 
+  global rcard1s
+  global rcard2s
+  
+  rcard1 = ctouse
+  rcard1s = stouse
+  
+  ctouse = random.choice(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])
+  stouse = random.choice(['♥', '♠', '♣', '♦'])
+  rcard2 = ctouse
+  rcard2s = stouse
   
   return 
   
 
 def printer (tprint):
   print(*tprint, sep='\n')
+  return
+
+def imgcard (card1, card2, card1s, card2s):
+  print ("  _________   _________ ")
+  print (" |    " + card1s + "    | |    " + card2s + "    | ")
+  print (" |         | |         |")
+  print (" |    " + card1 + "    | |    " + card2 + "    |")
+  print (" |         | |         |")
+  print (" |    " + card1s + "    | |    " + card2s + "    | ")
+  print ("  ---------   --------- \n")
   return
   
   
@@ -46,17 +68,15 @@ printer (['Loading...', ''])
 
 plname = input("What's your name:")
 printer (["Welcome " + plname + " Do you know how to play blackjack / 21? "])
-yn = input("Y/N:")
+yn = input("Y/N:").lower()
 
-if yn == ("N"):
+if yn == ("n"):
     printer (["Here are the rules:", "", "I am the Dealer and you are a player, your goal is to beat my hand without going over 21"])
 
 
 
-
-randomcard ()
-
-
-if yn == ("Y"):
-    printer (["\033[1;30;42m Dealer ", "\033[1;30;42m  Shuffling cards... ", "\033[1;30;42m  Your cards are " + rcard])
+elif yn == ("y"):
+    printer (["\033[1;30;42m Dealer ", "\033[1;30;42m  Shuffling cards... ", "\033[1;30;42m  Your cards are " ])
+    randomcard ()
+    imgcard(card1=rcard1, card2=rcard2, card1s=rcard1s, card2s=rcard2s)
    
