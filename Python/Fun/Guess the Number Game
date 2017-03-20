@@ -1,0 +1,350 @@
+import random # for computer's random interger 
+print ("\033[1;30;40m")  # this actualy has no purpose, yet when removed messes up lines below. i suppose it is a error which can be fixed, but doesn't cause any problems other than an extra line
+
+# this is a really big picture, which is coloured. if you print it'll make sense
+print ("                                                                                \033[1;31;40m;;;;.        ;;;;;")
+print ("                                                                                \033[1;31;40m.;;;;       :;;;;;")
+print ("                                                                                \033[1;31;40m `;;;       ;;:;;;")
+print ("                                                                                \033[1;31;40m  ;;;      ;;; ;;;             \033[0;37;40m``      `.")
+print ("                                                                                \033[1;31;40m `;;;     ,;;  ;;;           \033[0;37;40m,;;;;;   ;;;;:")
+print ("                                                                                \033[1;31;40m.;;;,     ;;:  ;;;           \033[0;37;40m;;  ;;  ;;  ;;")
+print ("                                                                                \033[1;31;40m;;;`     ;;;   ;;;           \033[0;37;40m;;  :;  ;;             \033[1;33;40m`::`         ``")
+print ("                                                                                \033[1;31;40m;;:     ,;;`   ;;;           \033[0;37;40m,;:,;;  ;,;;;        \033[1;33;40m.++++++:     .+++")
+print ("                                                                                \033[1;31;40m;;;;,   ;;;    ;;;           \033[0;37;40m`;;;;,  ;;,,;;      \033[1;33;40m`++++++++    +++++")
+print ("                                                                                \033[1;31;40m .;;;  ;;;     ;;;          \033[0;37;40m \033[0;37;40m;;  :;` ;;  :;`     \033[1;33;40m+++   ,+++  +++`++")
+print ("                                                                                \033[1;31;40m  ;;;: ;;;;;;;;;;;;;`       \033[0;37;40m`;:  `;: ;;  ,;.     \033[1;33;40m;;;    +++  +:  ++")
+print ("                                                                                \033[1;31;40m  ;;;: ;;;;;;;;;;;;;`        \033[0;37;40m;;  :;. ;;  ;;             \033[1;33;40m++'      ++")
+print ("                                                                                \033[1;31;40m  ;;;, ,,,,,,,,;;;,,`        \033[0;37;40m:;;;;;   ;;;;:           \033[1;33;40m:+++       ++")
+print ("                                                                                \033[1;31;40m:;;;;          ;;;                                  \033[1;33;40m'+++:        ++")
+print ("                                                                                \033[1;31;40m;;;;:          ;;;               \033[0;34;40m#@@@@@@.           \033[1;33;40m'+++++       ++")
+print ("                                                                                \033[1;31;40m;;;`           ;;;            \033[0;34;40m#@@@@@@@@@@@@            \033[1;33;40m:+++      ++")
+print ("                                                                                                             \033[0;34;40m@@@@@@@@@@@@@@@;           \033[1;33;40m+++      ++")
+print ("                                                                                                           \033[0;34;40m`@@@@@@@@@@@@@@@@@'   \033[1;33;40m+++    +++      ++")
+print ("                                                                                                           \033[0;34;40m@@@@@@@@@@@@@@@@@@@   \033[1;33;40m+++`  `+++      ++")
+print ("                                                                                                          \033[0;34;40m#@@@@@@@     #@@@@@@@  \033[1;33;40m,++++++++;  ++++++")
+print ("                                                                                                          \033[0;34;40m@@@@@@+       '@@@@@@   \033[1;33;40m,++++++;   ++++++")
+print ("                                                                                                         \033[0;34;40m:@@@@@@         @@@@@@      \033[1;33;40m..")
+print ("                                                                                                         \033[0;34;40m@@@@@@.         @@@@@@`")
+print ("                                                                                     \033[1;35;40m`:;;:`       `:;;,  \033[0;34;40m::::::          @@@@@@`")
+print ("                                                                                    \033[1;35;40m;;;;;;;;     ;;;;;;;;                \033[0;34;40m@@@@@@")
+print ("                                                                                   \033[1;35;40m;;;;;;;;;;   ;;;;;;;;;,              \033[0;34;40m:@@@@@@")
+print ("                                                                                   \033[1;35;40m;;;    ;;;  ,;;;   :;;;             \033[0;34;40m`@@@@@@:     \033[1;32;40m`'+',      ,;;")
+print ("                                                                                  \033[1;35;40m`;;;    ;;;  ;;;`    ;;;            \033[0;34;40m:@@@@@@@     \033[1;32;40m+++++++    ++++")
+print ("                                                                                          \033[1;35;40m;;;          ;;;           \033[0;34;40m@@@@@@@@      \033[1;32;40m++`  ++: `++;++")
+print ("                                                                                         \033[1;35;40m,;;;         ;;;.          \033[0;34;40m@@@@@@@+      \033[1;32;40m`++   +++ `+ ,++")
+print ("                                                                                        \033[1;35;40m.;;;`      ;;;;;.          \033[0;34;40m@@@@@@@        \033[1;32;40m ++   ++`    ,++")
+print ("                                                                                       \033[1;35;40m,;;;:       ;;;;:          \033[0;34;40m@@@@@@@          \033[1;32;40m`+++++'     ,++")
+print ("                                                                                      \033[1;35;40m;;;;,        :;;;;;.       \033[0;34;40m+@@@@@@           \033[1;32;40m.++++++     ,++")
+print ("                                                                                     \033[1;35;40m;;;;`             ;;;       \033[0;34;40m@@@@@@            \033[1;32;40m++   ++'    ,++")
+print ("                                                                                    \033[1;35;40m;;;;               ;;;`      \033[0;34;40m@@@@@+           \033[1;32;40m'++   ;++    ,++")
+print ("                                                                                   \033[1;35;40m:;;;        ;;;     ;;;`     \033[0;34;40m`#####            \033[1;32;40m'++   +++    ,++")
+print ("                                                                                   \033[1;35;40m;;;         ;;;;   .;;;                         \033[1;32;40m++: `++' `..:++.")
+print ("                                                                                  \033[1;35;40m:;;;;;;;;;;.  ;;;;;;;;;;                         \033[1;32;40m:++++++  .++++++")
+print ("                                                                                  \033[1;35;40m:;;;;;;;;;;.   ;;;;;;;;                             \033[0;37;40m.`")
+print ("                                                                                  \033[1;35;40m````````````    `,::,         \033[0;34;40m+@@@@@@   \033[0;37;40m;'''")
+print ("                                                                                                                \033[0;34;40m+@@@@@@  \033[0;37;40m`'  ',")
+print ("                                                                                                                \033[0;34;40m+@@@@@@  \033[0;37;40m''")
+print ("                                                                                                  \033[1;31;40m`:::.   :`    \033[0;34;40m+@@@@@@  \033[0;37;40m'''''")
+print ("                                                                                                  \033[1;31;40m.,     ::`    \033[0;34;40m+@@@@@@  \033[0;37;40m''  ''")
+print ("                                                                                                  \033[1;31;40m,,,.  ,`:`    \033[0;34;40m+@@@@@@  \033[0;37;40m;'  ''")
+print ("                                                                                                  \033[1;31;40m::`:, : :`              \033[0;37;40m',`':")
+print ("                                                                                                     \033[1;31;40m.::,,:,              \033[0;37;40m.'';")
+print ("                                                                                \033[1;32;40m:       .:,       \033[1;31;40m:, :,   :`")
+print ("                                                                                \033[1;32;40m:::   .::::::      \033[1;31;40m::,    :`")
+print ("                                                                                \033[1;32;40m`::.  :::.::::")
+print ("                                                                                \033[1;32;40m ::: :::   :::                           \033[1;33;40m;;;;;        \033[1;33;40m`;;;;;')")
+print ("                                                                                \033[1;32;40m ::,       ,::                          \033[1;33;40m;;;;;;;;:     \033[1;33;40m;;;;;;;;;")
+print ("                                                                                \033[1;32;40m:::        :::      \033[1;35;40m`##       ##      \033[1;33;40m;;;;;;;;;;.   \033[1;33;40m;;;;::;;;;:")
+print ("                                                                                \033[1;32;40m:,      ::::.      \033[1;35;40m####      ###      \033[1;33;40m;;;:   ;;;;   \033[1;33;40m;;;    ;;;;")
+print ("                                                                                \033[1;32;40m:::     :::::      \033[1;35;40m# ##     ,#'#     \033[1;33;40m,;;;    .;;;  \033[1;33;40m.;;;    `;;;")
+print ("                                                                                \033[1;32;40m :::       :::       \033[1;35;40m##     #:'#             \033[1;33;40m.;;;  \033[1;33;40m`;;;    .;;;")
+print ("                                                                                \033[1;32;40m :::        ::       \033[1;35;40m##    ## '#             \033[1;33;40m;;;; \033[1;33;40m v;;;`   ;;;;")
+print ("                                                                                \033[1;32;40m ::: :::   `::       \033[1;35;40m##   ,#  '#            \033[1;33;40m,;;;.   \033[1;33;40m`;;;:,;;;;")
+print ("                                                                                \033[1;32;40m.::, ,:::`.:::       \033[1;35;40m##   #+;;+#;,         \033[1;33;40m,;;;;      \033[1;33;40m:;;;;;.")
+print ("                                                                                \033[1;32;40m:::   :::::::`       \033[1;35;40m##   #######:        \033[1;33;40m:;;;;     \033[1;33;40m`;;;;;;;;;")
+print ("                                                                                \033[1;32;40m.      `,::.       \033[1;35;40m''##''     '#         \033[1;33;40m;;;;;      \033[1;33;40m;;;`   ;;;;")
+print ("                                                                                 \033[1;32;40m                  \033[1;35;40m######     +#        \033[1;33;40m;;;;,      \033[1;33;40m:;;;     ;;;`")
+print ("                                                                                                                      \033[1;33;40m;;;;`       \033[1;33;40m;;;;     ;;;,")
+print ("                                                                                                                      \033[1;33;40m;;;;         \033[1;33;40m;;;;     ;;;,")
+print ("                                                                                                                      \033[1;33;40m;;;,         \033[1;33;40m:;;;    `;;;")
+print ("                                                                                                                     \033[1;33;40m;;;;;;;;;;;;`  \033[1;33;40m;;;;,.;;;;;")
+print ("                                                                                                                     \033[1;33;40m;;;;;;;;;;;;`  \033[1;33;40m`;;;;;;;;;\n\n\n\n\n")
+
+
+# there will be a player input here to start game, there isn't because this slows down testing
+
+
+# the title, because it had be HUGE
+print(" \033[1;32;40m                                                                                                  ~II?.                                                                                  ,7I?       ")
+print(" \033[1;32;40m                 .~$OOOZ$=                                                                         ?MMN                                                                                  :MNN       ")
+print(" \033[1;32;40m                ,NMMMMMMMMMMM~                                                                     ?MMN                                                                                  :MMN ")
+print(" \033[1;32;40m               NMMMM8= ,~DMMMMO                                                             IDN,   ?MMN                                                                                  :MMN")
+print(" \033[1;32;40m             NMMM+         NMMD                                                             7MM:   ?MMN                                                                                  :MMN        ")
+print(" \033[1;32;40m             8MMD                                                                           7MM,   ?MMN,                                                                                 :MMM               ")
+print(" \033[1;32;40m            ,MMM                  ?MMN    DMM,     8MMMMMM~    ,NMMMM+    +MMMM$          ~MMMMMM= ?MMMDMMMMD,      IMMMMMM=            ?MMMDMMMMD,    8MM,   ~MMM   MMM8MMMM8~MMMMM$.   :MMM7MMMMMN,      $MMMMMM     +MMMMMMMN     ")
+print(" \033[1;32;40m            ~MM7                  ?MMN    8MM,   +MMMMMMMNMI   MMMMMMM,  IMMMMMMM         ~MMMMMM~ ?MMMMMMMMMM?   ,MMMMMMMMM7           ?MMMMMMMMMM    8MM,   ~MMN   MMMMMMMMMMMMMMMM$   :MMMMMMMMMMM:   $MMMMMMMMMI   +MMMMMMMI     ")
+print(" \033[1;32;40m            =MM$       ~MMMMMMM8  ?MMN    8MM,  ,DMMO   ~MMM~  MMD.+7    ZMM?.O             7MM,   ?MMM8  ,MMMD   8MMO...,NMM?          ?MMM+   MMN,   8MM,   ~MMN   MMMD ,$MMMM  ?MMM:  :MMM8    ZMMM,  MMMO   IMMM?  +MMM~     ")
+print(" \033[1;32;40m            ,MMM       :MMMMMMMD  ?MMN    8MM,  :MMM8O88DMMM?  MMMMO     $MMMM=             7MM:   ?MMM,   ?MMD  ~MMMDOO8DMMMD          ?MMM,   NMM~   8MM,   ~MMN   MMM,  ~MMM~  ,MMM~  :MMM,     MMMI ~MMMO8O88MMMO  +MMM")
+print(" \033[1;32;40m             8MMM=          DMMI  ?MMN    8MM,  +MMMMMMMMMMMI    OMMMMZ    7MMMMM           7MM,   ?MMN    ~MMD  =MMMMMMMMMMMM          ?MMN    8MM=   8MM,   ~MMN   MMM,  =MMM,  ,MMM~  :MMO      OMMI +MMMMMMMMMMM8  ?MMN")
+print(" \033[1;32;40m              MMMM~        MMMM,  +MMN    DMM,  ~MMD     ,D:       ?MMM~     ,NMM~          7MM:   ?MMN    ~MMD  :MMM      ,N:          ?MMN    DMM~   8MM,   ~MMN   MMM,  =MMN,  ,MMM~  :MMM:     MMMI ~MMN    ,:Z,   +MMN   ")
+print(" \033[1;32;40m               MMMMMZ:  ?MMMMM,   ~MMM7  $MMM    OMMM=  ?MMMI +MMO.~MMM~?MMM: ZMM~          7MM:   ?MMN    ~MMD   7MMM+ :NMMM           ?MMN    DMM~   OMMM~  8MM8   MMM,  =MMN,  ,MMM~  :MMMM:  :NNMM   MMMM~  OMMMD  +MMN")
+print(" \033[1;32;40m                =8MMMMMMMMMNO:,    :MMMMMMMN$     DMMMMMMMN7  ,MMMMMMM+ ,8MMMMMMN           7MM:   ?MMN    ~MMD    8MMMMMMMM7           ?MMN    DMM~   ,DMMMMMMMD    MMM,  =MMN,  ,MMM~  :MMMMMMMMMMD    ~8MMMMMMMD7   +MMN        ")
+print(" \033[1;32;40m                  ,=I$$$7?~         ,=7Z$7=        :I$Z$7=     ,+7$7I,    :I$Z7,            :I?    :??+    ,???      7$$$7+,            :III    +I?,     ~I$$$7:     ???    ???    I??,   ??+,I7$$I,       ,I7$$I+     :???     \n\n\n\n\n                ")
+
+
+
+# the most confusing piece of code you've ever seen: a bunch of smiley faces. upgrades of lines 123-128. print to see to current bug/glitch/error (see line 107)
+print ("\033[1;30;40m           7MMNZ?+++\033[1;30;40mIZDNMO:\033[1;32;40m.............. ....................                                                                                      ")
+print ("\033[1;30;40m      =NMMM\033[1;34;40mMMMN7?????I??8MMMD7\033[1;32;40m...................+NMMMM8I.,.........                                                                                      ")
+print ("\033[1;30;40m      MMM\033[1;34;40m~???????????Z7????=NMMM \033[1;32;40m.............IMM$~++??+==$MM$.......                                                                                    ")
+print ("\033[1;30;40m     ND\033[1;34;40m=????????????????????I+MM\033[1;32;40m..........,MN+?777777777777I+MM........                                                                                 ")
+print ("\033[1;30;40m    MN\033[1;34;40m?????I????????????????I??ZM\033[1;32;40m........$M\033[1;30;40m8MMMNZ\033[1;32;40m7777777\033[1;30;40m$OMMMM\033[1;32;40mZM=. ....                                                                                ")
+print ("\033[1;30;40m   M8\033[1;34;40m???I788$I?????????I$887II??$M\033[1;32;40m......NM\033[1;30;40mD$\033[1;32;40m777777777777777777\033[1;30;40mZM\033[1;32;40mMM.....                                                                               ")
+print ("\033[1;30;40m  7N\033[1;34;40m????$.\033[0;37;40mNM\033[1;30;40mMMZ\033[1;34;40mI?II?II78.\033[1;37;40mDM\033[1;30;40mMM$\033[1;34;40mI??MD\033[1;32;40m...M877777777777777777777777?DM....")
+print ("\033[1;30;40m  M\033[1;34;40mIIII\033[1;30;40mN8~MMMMM\033[1;34;40mI?III?\033[1;30;40mIMN:MMMMM\033[1;34;40mI?IIMI\033[1;32;40m..ZD?7777Z877777777777Z8Z7777IMO...                         ")
+print ("\033[1;30;40m ZM\033[1;34;40mII?\033[1;30;40mIMMMMMMMM\033[1;34;40mIIIIII\033[1;30;40mIMMMMMMMM\033[1;34;40mIIIINN\033[1;32;40m. M777I\033[1;30;40mN\033[0;37;40m.:\033[1;30;40mMMM$\033[1;32;40m7777$7\033[0;37;40m.\033[1;30;40mMMMD77\033[1;32;40m77MMNZ  ")
+print ("\033[1;30;40m MD\033[1;34;40mIIIIO8OOOZZZIIIIIIIZZZZO888IIIIOM\033[1;32;40m.7M$778\033[1;30;40mM\033[0;37;40m=\033[1;30;40m$MMMN\033[1;32;40m$$$$$$\033[0;37;40m\+\033[1;30;40mNDMMM\033[1;32;40mM$$77N..")
+print ("\033[1;30;40m M8\033[1;34;40mII$IIIIIIIIIIIIIIIIIIIIIIII$87IZM\033[1;32;40m.DO$$$$\033[1;30;40mZMMMMMM\033[1;32;40m8$$$$$\033[1;30;40mNMMMMMM\033[1;32;40m$$$$OM..") # colour bug (39 characters from end of line 107): 'NMMMMMM' is black (\033[1;30;40), however when colour changes to green (\033[1;32;40) the text behind it '$$$$OM' should be green, but when printed, is black
+print ("\033[1;30;40m M8\033[1;34;40mIINNNM8Z$IIIIIIIIIIII7Z8NMMMMIIZM\033[1;32;40m.MO$$$$$\033[1;30;40mMMMMO\033[1;32;40m$$$$$$$$\033[0;30;40mDMMMD\033[1;32;40m$$$$$ZM..")
+print ("\033[1;30;40m DN\033[1;34;40mII$\033[1;30;40mNNNNNNDNNNNNNMMMMMMMMMMMM\033[1;34;40m8I7NN\033[1;32;40m.N8$$$$$$$$Z$$$$$$$$$$Z$Z$$$$$$OM..")
+print ("\033[1;30;40m  M\033[1;34;40m7I7\033[1;30;40mNNNDDNNNNNNNNNNMMMMMMMMMN\033[1;34;40mII7M?\033[1;32;40m IMZZ$D$ZZZZZZZZZZZZZZZZZZ$NZZZN$  ")
+print ("\033[1;30;40m  ZD\033[1;34;40m7I7\033[1;30;40mMNNNNNNDNNNNNNMMMMMMMMM\033[1;34;40m7I7NM\033[1;32;40m...MZZZZZ\033[1;30;40mMNN\033[1;32;40mZZZOZZZZZZZZ\033[1;30;40mMNN\033[1;32;40mZZZZOM . ")
+print ("\033[1;30;40m   MO\033[1;34;40m77I\033[1;30;40mDNNDDNNNNNNNNNNMMMMMM\033[1;34;40m777$M\033[1;32;40m....DNOOOOOO8\033[1;30;40mMMMMMMMMMMMN\033[1;32;40m8OOOOOOMD. .")
+print ("\033[1;30;40m   :M8\033[1;34;40m777\033[1;30;40m8NNO\033[1;31;40m$II7$8ZII$\033[1;30;40mZONMO\033[1;34;40m777ZM:\033[1;32;40m... .MN888888888O88888888888888NN. ..")
+print ("\033[1;30;40m     MN\033[1;34;40m$7777\033[1;30;40mN\033[1;31;40m8$ZZ$ZZZZZO\033[1;30;40mM\033[1;34;40m$7777MM\033[1;32;40m........DM8888888888888888888888MN.....")
+print ("\033[1;30;40m      ZMD\033[1;34;40m777777\033[1;31;40mZDDNNDZ\033[1;34;40m77777$8NI\033[1;32;40m......... 8MDD88888888888888888DM$......")
+print ("\033[1;30;40m        $MDZ\033[1;34;40m$77777777777$$DMO,\033[1;32;40m..........    D88888888888888888   ......")
+print ("\033[1;30;40m           ?MMMDOOZOODMMM$,\033[1;32;40m................. \033[1;30;40m7MMMDDDDDDDDNMM7..........")
+
+
+
+
+                                                                        # the original cute smiley faces, they're still here incase i decide to give up (quite possible)
+print ("                                                            \033[1;34;40m '---------'  \033[1;32;40m  '---------'  \033[1;33;40m  '---------'  \033[1;31;40m  '---------'  \033[1;35;40m  '---------'  \033[1;31;40m  |\-------/|      ")
+print ("                                                            \033[1;34;40m/           \ \033[1;32;40m /           \ \033[1;33;40m /  _     _  \ \033[1;31;40m /  _     _  \ \033[1;35;40m / _\     /_ \ \033[1;31;40m /\033[1;32;40m __     __ \033[1;31;40m\     ")
+print ("                                                            \033[1;34;40m| O _____ O | \033[1;32;40m |  O     O  | \033[1;33;40m |  O     O  | \033[1;31;40m | |_|   |_| | \033[1;35;40m ||_) ___ |_)| \033[1;31;40m |\033[1;32;40m|__\   /__|\033[1;31;40m|     ")
+print ("                                                            \033[1;34;40m|   \___/   | \033[1;32;40m |    ___    | \033[1;33;40m |   _____   | \033[1;31;40m |     _     | \033[1;35;40m |   (___)   | \033[1;31;40m |\033[0;37;40m  v-----v  \033[1;31;40m|     ")
+print ("                                                            \033[1;34;40m \_________/  \033[1;32;40m  \_________/  \033[1;33;40m  \_________/  \033[1;31;40m  \_________/  \033[1;35;40m  \_________/  \033[1;31;40m  \_________/      \n")
+print ("                                                            \033[0;37;40m    EASY 1        NORMAL 2        HARD 3         HARDER 4       INSANE 5       DEMON 6      \n\n")
+# the actual game. all the 'if dif's below are variations of game depending of what differculty the player chose
+dif = input("                                                                                \033[0;37;40m Select differculty (1,2,3,4,5,6)")
+
+if dif == ("1"):
+    guess = 8
+    min = 1
+    max = 10
+    n = random.randint(min, max)
+
+
+
+    ha =""
+
+
+    plagain = "yes"
+
+    print("                                                                                 Choosing a number...")
+    print("                                                                                 Number Chosen: \n                                                                                 The number is between 1 and 10")
+    while ha != "yes":
+        plg = int(input("                                                                                 Guess the number:"))
+        if plg < n:
+            print ("                                                                                 Your guess is too small")
+            guess = guess - 1
+            print ("                                                                                 Guess: %s" % (guess))
+        if plg > n:
+            print ("                                                                                 Your guess is too big")
+            guess = guess - 1
+            print ("                                                                                 Guess: %s" % (guess))
+
+        if plg == n:    # there are different 'congrat's for each differculty. Please add (3 each) any good ones if you think of some. have fun!
+            congrat = ["Well Done\n", "10 out of 10, why don't you play again\n", "Best of the best\n",]
+            ch = random.choice(congrat)
+            print ("\n \033[1;34;40m                                                                                %s" % (ch))
+            print ()
+            ha = "yes"
+
+        else:
+            ha= "no"
+
+
+if dif == ("2"):
+    guess = 12
+    min = 1
+    max = 20
+    n = random.randint(min, max)
+
+    ha =""
+
+    plagain = "yes"
+
+    print("                                                                                 Choosing a number...")
+    print("                                                                                 Number Chosen: \n                                                                                 The number is between 1 and 20")
+    while ha != "yes":
+
+        plg = int(input("                                                                                 Guess the number:"))
+        if plg < n:
+            print ("                                                                                 Your guess is too small")
+            guess = guess - 1
+            print ("                                                                                 Guess: %s" % (guess))
+        if plg > n:
+            print ("                                                                                 Your guess is too big")
+            guess = guess - 1
+            print ("                                                                                 Guess: %s" % (guess))
+
+        if plg == n:
+            if plg == n:
+                ha = "yes"
+                congrat = ["#", "#", "#",]
+                ch = random.choice(congrat)
+                print ("                                                                                 %s" % (ch))
+
+            ha = "yes"
+        else:
+            ha= "no"
+
+if dif == ("3"):
+    guess = 16
+    min = 1
+    max = 40
+    n = random.randint(min, max)
+
+    ha =""
+
+    plagain = "yes"
+
+    print("                                                                                Choosing a number...")
+    print("                                                                                Number Chosen: \n                                                                                 The number is between 1 and 40")
+    while ha != "yes":
+
+        plg = int(input("                                                                                Guess the number:"))
+        if plg < n:
+            print ("                                                                                Your guess is too small")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+        if plg > n:
+            print ("                                                                                Your guess is too big")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+
+        if plg == n:
+            if plg == n:
+                ha = "yes"
+                congrat = ["#", "#", "#",]
+                ch = random.choice(congrat)
+                print ("                                                                                 %s" % (ch))
+
+
+                ha = "yes"
+        else:
+                ha = "no"
+
+if dif == ("4"):
+    guess = 12
+    min = 1
+    max = 60
+    n = random.randint(min, max)
+
+    ha =""
+
+    plagain = "yes"
+    print("                                                                                Choosing a number...")
+    print("                                                                                Number Chosen: \n                                                                                 The number is between 1 and 60")
+    while ha != "yes":
+
+        plg = int(input("                                                                                Guess the number:"))
+        if plg < n:
+            print ("                                                                                Your guess is too small")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+        if plg > n:
+            print ("                                                                                Your guess is too big")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+
+        if plg == n:
+            if plg == n:
+                ha = "yes"
+                congrat = ["#", "#", "#",]
+                ch = random.choice(congrat)
+                print ("                                                                                 %s" % (ch))
+
+
+
+                ha = "yes"
+            else:
+                ha= "no"
+
+if dif == ("5"):
+        guess = 8
+        min = 1
+        max = 80
+        n = random.randint(min, max)
+
+        ha =""
+
+        plagain = "yes"
+
+        print("                                                                                Choosing a number...")
+        print("                                                                                Number Chosen: \n                                                                                 The number is between 1 and 80")
+        while ha != "yes":
+
+            plg = int(input("Guess the number:"))
+            if plg < n:
+                print ("                                                                                Your guess is too small")
+                guess = guess - 1
+                print ("                                                                                Guess: %s" % (guess))
+            if plg > n:
+                print ("                                                                                Your guess is too big")
+                guess = guess - 1
+                print ("                                                                                Guess: %s" % (guess))
+
+            if plg == n:
+                if plg == n:
+                     ha = "yes"
+                     congrat = ["#", "#", "#",]
+                     ch = random.choice(congrat)
+                     print ("                                                                                 %s" % (ch))
+
+
+                ha = "yes"
+            else:
+                ha= "no"
+
+if dif == ("6"):
+    guess = 2
+    min = 1
+    max = 100
+    n = random.randint(min, max)
+    ha =""
+    plagain = "yes"
+
+    print("                                                                                Choosing a number...")
+    print("                                                                                Number Chosen: \n                                                                                 The number is between 1 and 100")
+    while ha != "yes":
+
+        plg = int(input("                                                                                Guess the number:"))
+        if plg < n:
+            print ("                                                                                Your guess is too small")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+        if plg > n:
+            print ("                                                                                Your guess is too big")
+            guess = guess - 1
+            print ("                                                                                Guess: %s" % (guess))
+
+        if plg == n:
+            if plg == n:
+                ha = "yes"
+                congrat = ["Sherlock 2.0", "Computer Hax", "MVP of the century",]
+                ch = random.choice(congrat)
+                print ("                                                                                 %s" % (ch))
+
+
+
+
+            ha = "yes"
+        else:
+            ha= "no"
+
+
+
+
