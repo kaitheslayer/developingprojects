@@ -1,0 +1,14 @@
+# Linear Sequences
+        
+# For the sake of testing, the comments below are what will be the actual code intro
+#print("Enter the first four terms of the sequence")
+
+ls1=3    #ls1 = input("Term 1: ")
+ls2=5    #ls2 = input("Term 2: ")
+ls3=7    #ls3 = input("Term 3: ")
+ls4=9    #ls4 = input("Term 4: ")
+
+lsd1 = ls2-ls1 == ls4-ls3 # lsd1 -> common differnce
+lsc=(lsd1*ls1)-ls1 # lsc -> constant e.g. Tn = xn + c
+
+print("Tn = %sn"%(lsd1)+("+%s"%(lsc)))
