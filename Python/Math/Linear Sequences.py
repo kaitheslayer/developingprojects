@@ -1,5 +1,6 @@
 
 # Original Scroll down for v2
+# ==============================================================================================================================
 print("Enter the first four terms of the sequence")
 
 # works with given variables, does not work with inputs(hence the comments below which you can remove the '#'s to work with)
@@ -25,8 +26,8 @@ elif ls2-ls1!=ls4-ls3:
     
     
     
-    # Linear Sequences Improved
-
+# Linear Sequences Improved
+# ==============================================================================================================================
 print("Enter the first four terms of the sequence")
 
 # works with given variables, does not work with inputs(hence the comments below which you can remove the '#'s to work with)
@@ -53,11 +54,10 @@ if int(ls2)-int(ls1) == int(ls4)-int(ls3):
 
 elif int(ls2)-int(ls1)!=int(ls4)-int(ls3):
     print("This is not a Linear Equation!")
-
-
-# ======================================================================================================================
+    
 
 # In function form
+# ======================================================================================================================
 def lseq(ls1, ls2, ls3, ls4):
     if int(ls2) - int(ls1) == int(ls4) - int(ls3):
         lsd1 = int(ls2) - int(ls1)  # common difference
