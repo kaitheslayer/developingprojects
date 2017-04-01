@@ -1,0 +1,14 @@
+# quadractic sequences 
+
+qs1, qs2, qs3, qs4 = input("Enter first 4 terms... With Spaces In Between ").split()
+# e.g.  9    16   25   36
+
+    # checking if 2nd difference is constant
+if (int(qs3)-int(qs2))-(int(qs2)-int(qs1))==(int(qs4)-int(qs3))-(int(qs3)-int(qs2)):
+    a=int(qs3)-int(qs2)-int(qs2)-int(qs1) # a = 2nd difference/2
+    b=int(qs2)-int(qs1)-3*int(a) # b = (T2 - T1)-3a
+    c=int(qs1)-int(a)-int(b) # c = T1-(a+b)
+    print("Tn = %n² + %n + %"%(a,b,c)) # THE PROBLEM
+
+else:
+    print("This is not a quadratic sequence!")
