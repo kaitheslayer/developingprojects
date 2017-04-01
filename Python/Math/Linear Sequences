@@ -1,4 +1,31 @@
-# Linear Sequences
+
+# Original Scroll down for v2
+print("Enter the first four terms of the sequence")
+
+# works with given variables, does not work with inputs(hence the comments below which you can remove the '#'s to work with)
+ls1=3    #ls1 = input("Term 1: ")
+ls2=5    #ls2 = input("Term 2: ")
+ls3=7    #ls3 = input("Term 3: ")
+ls4=9    #ls4 = input("Term 4: ")
+
+
+if ls2-ls1 == ls4-ls3:
+    lsd1=ls2-ls1 #common difference
+    lsc=lsd1-ls1 #constant e.g. Tn = xn + c
+    if lsd1 == 1:   # added to change Tn = 1n to Tn = n
+        print("Tn = n")
+    elif lsc==0:  # added to prevent problem where 0 is neither '+' or '-'. So a sequence: 1;2;3;4 -> Tn = n0
+       print("Tn = %sn"%(lsd1))
+    else:
+        print("Tn = %sn"%(lsd1)+("%s"%(lsc)))
+
+elif ls2-ls1!=ls4-ls3:
+    print("This is not a Linear Equation!")
+    
+    
+    
+    
+    # Linear Sequences Improved
 
 print("Enter the first four terms of the sequence")
 
