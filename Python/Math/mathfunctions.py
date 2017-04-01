@@ -28,6 +28,23 @@ def sqroot (number):
     if f != True:
         return "No Square Root Found"
     
+
+# Linear Patern Solver    
+def lseq (ls1, ls2, ls3, ls4):
+    if int(ls2) - int(ls1) == int(ls4) - int(ls3):
+        lsd1 = int(ls2) - int(ls1)  # common difference
+        lsc = int(lsd1) - int(ls1)  # constant e.g. Tn = xn + c
+        lsc = int(lsc) * -1
+        if lsd1 == 1:  # added to change Tn = 1n to Tn = n
+            return("Tn = %sn+" % (lsd1) + ("%s" % (lsc)))
+        elif lsc == 0:  # added to prevent problem where 0 is neither '+' or '-'. So a sequence: 1;2;3;4 -> Tn = n0
+            return("Tn = %sn" % (lsd1))
+        else:
+            return("Tn = %sn+" % (lsd1) + ("%s" % (lsc)))
+
+    elif ls2 - ls1 != ls4 - ls3:
+        return("This is not a Linear Equation!")
+    
     
 # THIS CAN SERIOUSLY BE DONE BETTER WITH CREATING OTHER FUCNTIONS, BUT LEAVING IT HERE FOR NOW...
 def lineareq(numbers):
