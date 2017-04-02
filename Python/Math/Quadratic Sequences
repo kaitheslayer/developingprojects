@@ -1,15 +1,27 @@
 # quadractic sequences
 
+#============================================================
+#  all variables work only as integers, need to change that!
+#============================================================
+
 qs1, qs2, qs3, qs4 = input("Enter first 4 terms... With Spaces In Between ").split()
 # e.g.  9    16   25   36
 
+# split the if statement below into variables: it works
+d1=int(qs3)-int(qs2)
+d2=int(qs2)-int(qs1)
+d3=int(qs4)-int(qs3)
+d4=int(qs3)-int(qs2)
+d5=d1-d2
+
     # checking if 2nd difference is constant
-if (int(qs3)-int(qs2))-(int(qs2)-int(qs1))==(int(qs4)-int(qs3))-(int(qs3)-int(qs2)):
-    a=int(qs3)-int(qs2)-int(qs2)-int(qs1) # a = 2nd difference/2
+if d1-d2==d3-d4:
+    a=d5/2 # a = 2nd difference/2
     b=int(qs2)-int(qs1)-3*int(a) # b = (T2 - T1)-3a
     c=int(qs1)-int(a)-int(b) # c = T1-(a+b)
-    print("Tn = %sn²" % (a) + (" + %sn" % (b)+ (" + %s" % (c))))  # fixed: works but ???? -> an equation: 20; 30; 42; 56 has the formula n²+7n+12 and according to the code it's -38n²+124n-66, which also works!!!
-    # use your factors code to factorise into (x+y)(x+y) format
-else:
+    print("Tn = %sn²" % int(a) + (" + %sn" % (b)+ (" + %s" % (c))))  # int(a) is used because 'a' is a number/2 so the result would be a float_number e.g. 1 -> 1.0 
+    # use your factor genorator to add (x+y)(x+y) format
+
+else:  # this line no longer works: enter: 1; 2; 3; 4
     print("This is not a quadratic sequence!")
 
