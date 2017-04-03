@@ -1,3 +1,12 @@
+# Converter
+def tnuml(n):
+    o = []
+    for _ in n:
+        _ = float(_)
+        o.append(_)
+    return o
+
+
 # Geometric Sequences
 
 # example: 2; 8; 32; 128
@@ -14,11 +23,11 @@
 
 # delete all lines: 2-15, when finished reading...
 
-gs1, gs2, gs3, gs4 = input("Enter first 4 terms... With Spaces In Between ").split()
-v1=int(gs2)/int(gs1)
-v2=int(gs4)/int(gs3)
+gs1, gs2, gs3, gs4 = tnuml(input("Enter first 4 terms... With Spaces In Between ").split())
+v1=gs2/gs1
+v2=gs4/gs3
 
-if int(v1)==int(v2):
+if v1==v2:
     print("Tn = %s x %s^n-1" % (int(gs1), int(v1)))
 
 # only works with seq. with common diff of multiplying integers so the second example doesn't work
