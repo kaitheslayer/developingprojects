@@ -1,5 +1,15 @@
 # File with the functions which will be used in math script
 
+
+# ========================================================================= Non Math Functions
+def tnuml(n):
+    o = []
+    for _ in n:
+        _ = float(_)
+        o.append(_)
+    return o
+# ========================================================================= Non Math Functions
+
 # Number to the power of
 def po (number, pof):
     b = number
