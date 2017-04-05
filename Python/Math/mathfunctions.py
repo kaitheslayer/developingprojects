@@ -2,19 +2,20 @@
 
 
 # ========================================================================= Non Math Functions
+
+# Convert to flaots, supports array of data.
 def tnuml(n):
     o = []
     for _ in n:
         _ = float(_)
         o.append(_)
     return o
+
 # ========================================================================= Non Math Functions
 
 # Number to the power of
 def po (number, pof):
-    b = number
-    for _ in range(pof - 1):
-        b = int(b) * int(number)
+    b = number ** pof
     return b
 
 # Factors of a number
