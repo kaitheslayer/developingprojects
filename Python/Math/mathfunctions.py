@@ -11,6 +11,26 @@ def tnuml(n):
         o.append(_)
     return o
 
+# This can be used to read a config file. (May be usefull for us to make quick changes)
+def configr(vars, filename, section):
+    import configparser
+    c = configparser.ConfigParser()
+    c.read(filename)
+    r = []
+    for _ in vars:
+        a = c.get(section, _)
+        r.append(a)
+    return r
+
+# This allows the writing of a file (rewriter), usefull for automatically writing code snippets and stuff to a file.
+def writer (fname, data, sep):
+    z = open(fname, 'w')
+    for x in data:
+        z.write (x)
+        z.write (sep)
+    z.close()
+
+
 # ========================================================================= Non Math Functions
 
 # Number to the power of
