@@ -20,56 +20,18 @@ xpbar = ""
 level = 1
 xp = 0
 
-if xp < 13:
-    xpbar = "0"*int(xp) + " "*(12-int(xp))
 
 spacing = " "*(16-(len(username)))
-shop = """
-==================================================================================================================|
-| Level | %s |                                                                      | Username | %s |%s|
-| ____________                                                                                                    |
-|(%s)                                                                                                   |
-|=================================================================================================================|
-|                                                                                                                 |
-|                                                   BOWS                                                          |
-|                                                                                                                 |
-|=================================================================================================================|
-|Wooden Bow         Warrior Bow         Steel Bow           Compact Bow         Laser Bow           Legendary Bow |
-|=================================================================================================================|
-|                                                                                                                 |
-|                                                                                                                 |
-|                                                                                                                 |
-|                                                                                                                 |
-|(Level 1)           (Level 2)           (Level 3)           (Level 4)           (Level 5)            (Level 6)   |
-|=================================================================================================================|
-|Accuracy: 10       Accuracy: 35        Accuracy: 55        Accuracy: 75        Accuracy: 85        Accuracy: 99  |
-|=================================================================================================================|
-|                                                                                                                 |
-|                                                 SETTING                                                         |
-|                                                                                                                 |
-|=================================================================================================================|
-|Archery Valley         Volcanic Plains         Robotics Factory        The Moon        Legendary Realm           |
-|=================================================================================================================|
-|                                                                                                                 |
-|                                                                                                                 |
-|                                                                                                                 |
-|                                                                                                                 |
-|                                                                                                                 |
-|(Level 1)                 (Level 2)                (Level 4)           (Level 5)           (Level 6)             |
-|=================================================================================================================|                                                                                                                 |
-""" % (level, username, spacing, xpbar)
 
-# Level Up
-while xp == 12:
-    level += 1
-    xp = 0
-    print("--------\nLEVEL UP\n--------")
+
+
 
 # ASCII text of archery target + setting background
 # bow facing right + dotted line as arrow's path + arrow/laser point + target
 # setting below and around
 
 def accurate(level):
+    xp = int()
     accuracy = globals()
     if level == 1:      # No ratio of level:accuracy -> need to list all outcomes
         accuracy = 10
@@ -86,19 +48,73 @@ def accurate(level):
     i = random.randint(1,100)
     if i < accuracy:
         print("BULLSEYE!\nScore: 100")
-        level += 1
+        level += 1   # level doesn't seem to update?
+
     else:
         score = [5, 5, 5, 5, 5, 10, 10, 10, 10, 20, 20, 20, 50]
         print("Score: %s" % (random.choice(score)))
 
-x = int()
-while level == x:
-    begin_game = input("| Shop(s) | Start Game(L>) |")
-    if begin_game == "s" or "S":
-        print(shop)
-        input ("Start Game")
-        input("Fire!")+ str(accurate(x))
-        xp += (random.randint(1,12))
+while True:
+    begin_game = input("| Shop(s) | Start Game(L>) | ")
+
+    if begin_game == "s":
+        if xp < 26:
+            xpbar = "0" * int(xp) + " " * (25 - int(xp))
+
+
+            shop = """
+            ==================================================================================================================|
+            | Level | %s |                                                                      | Username | %s |%s|
+            | _________________________                                                                                       |
+            |(%s)                                                                                      |
+            |=================================================================================================================|
+            |                                                                                                                 |
+            |                                                   BOWS                                                          |
+            |                                                                                                                 |
+            |=================================================================================================================|
+            |Wooden Bow         Warrior Bow         Steel Bow           Compact Bow         Laser Bow           Legendary Bow |
+            |=================================================================================================================|
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |(Level 1)           (Level 2)           (Level 3)           (Level 4)           (Level 5)            (Level 6)   |
+            |=================================================================================================================|
+            |Accuracy: 10       Accuracy: 35        Accuracy: 55        Accuracy: 75        Accuracy: 85        Accuracy: 99  |
+            |=================================================================================================================|
+            |                                                                                                                 |
+            |                                                 SETTING                                                         |
+            |                                                                                                                 |
+            |=================================================================================================================|
+            |Archery Valley         Volcanic Plains         Robotics Factory        The Moon        Legendary Realm           |
+            |=================================================================================================================|
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |                                                                                                                 |
+            |(Level 1)                 (Level 2)                (Level 4)           (Level 5)           (Level 6)             |
+            |=================================================================================================================|                                                                                                                 |
+            """ % (level, username, spacing, xpbar)
+
+            print(shop)
+            input ("Start Game")
+            input("Fire!")+ str(accurate(level))
+            xp += (random.randint(1,12))
+            print("XP:" + str(xp))
+            if xp >= 25:
+                level += 1
+                xp = (xp-25)
+                print("--------\nLEVEL UP\n--------")
+
+
     else:
-        input("Fire!")+ str(accurate(x))
+        input("Fire!")+ str(accurate(level))
         xp += (random.randint(1,12))
+        print("XP:" + str(xp))
+        if xp >= 25:
+            level += 1
+            xp = (xp-25)
+            print("--------\nLEVEL UP\n--------")
+
+
