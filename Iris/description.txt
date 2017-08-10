@@ -1,1 +1,4 @@
-jkjds
+import re
+words=['add','subtract','divide','multiply','weather', 'how are you', 'weather']
+word_exp='|'.join(words)
+print(re.findall(word_exp,'how are you doing iris',re.M))
