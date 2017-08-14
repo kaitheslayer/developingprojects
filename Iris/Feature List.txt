@@ -1,0 +1,28 @@
+#############################################################
+Feature List
+#############################################################
+
+Math: 
+- Basic operations ()
+- Paterns()
+- Trigonometry ()
+- Exponents()
+- Algebra ()
+- Fractions ()
+- Matrices ()
+- Curency Exchange ()
+
+Input Based:
+- Weather ()
+- Translations ()
+- Definitions ()
+- Antonyms ()
+- Synonyms ()
+- News ()
+
+Fun:
+- Conversation ()
+- Games ()
+
+
+#############################################################
