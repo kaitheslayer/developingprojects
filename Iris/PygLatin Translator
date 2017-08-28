@@ -1,11 +1,18 @@
-print("PygLatin Translator\n")
-
-original = input('Enter a word: ')
-
-# .isalpha() checks if all characters are letters, it returns False if any characters are numbers, symbols, punctuation marks
-if len(original) > 0 and original.isalpha():
-    word =  original.lower()
+original = raw_input("Enter a word: ")
+original = str(original)
+if len(original) > 0 and original.isalpha() is True:
+    word = original.lower()
     new_word = word[1:len(word)] + word[0] + "ay"
-    print('Piglatin: ' + new_word)
+    print("Pig latin: " + new_word)
 else:
     print ('empty')
+
+
+def pyglatin_translator(word):
+    if len(word) > 0 and word.isaplha():
+        lword = word.lower()
+        pyg_word = lword[1:len(word)] + lword[0] + 'ay'
+        return pyg_word
+    else:
+        return 'empty'
+
