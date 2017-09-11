@@ -1,0 +1,28 @@
+from math import factorial
+from random import shuffle
+lock_type = input("""1) Button click lock
+2) Master Lock
+3) Permutation Lock""")
+
+n = input("NUmbers to choose from: ")
+r = input("Number of inputs: ")
+p = factorial(n)
+p2 = factorial(r) * factorial(n-r)
+w = factorial(n-r)
+
+
+if lock_type == 1:
+    # button click lock
+    total = p/p2
+    print("Permutations: " + str(total))
+
+elif lock_type == 2:
+    # combination lock
+    total = p/w
+    print("Permutations: " + str(total))
+
+elif lock_type == 3:
+    # permutation lock
+    total = n**r
+    print("Permutations: " + str(total))
+
