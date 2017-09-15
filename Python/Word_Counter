@@ -8,4 +8,4 @@ def word_count(string):
             y += 1
     return words
 
-# Problem: if string = "one two three       four", the function would count all the spaces as words
+# Problem: if string = "one two three       four", the function would count all the spaces as words 
