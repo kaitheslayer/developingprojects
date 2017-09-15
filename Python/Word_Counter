@@ -1,0 +1,11 @@
+def word_count(string):
+    string = string + " "  # This function counts spaces after each word, adding a " " at the end counts that last word 
+    words = 0
+    for x in string:
+        y = 0
+        if x[y] == " ": 
+            words += 1
+            y += 1
+    return words
+
+# Problem: if string = "one two three       four", the function would count all the spaces as words
