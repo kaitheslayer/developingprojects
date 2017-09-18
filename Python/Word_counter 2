@@ -1,5 +1,5 @@
 def word_count(string):
-    string =  " " + string
+    string ==  " " + string
     words = 0
     y = 0
     while y <= len(string):
