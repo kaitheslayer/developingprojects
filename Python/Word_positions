@@ -1,0 +1,22 @@
+
+# Attempt to add word positions to a list called word_order
+# Attempt Failed
+
+# Includes numbers
+def word_count_no(string):
+    word_order = []
+    string = string + " "
+    words = 0
+    y = 0
+    while y < len(string)-1:
+        if string[y].isalnum() and string[y+1] == " ":
+            words += 1
+            if words == 1:
+                word_order.append(0)
+                word_order.append(y)
+            else:
+                word_order.append(word_order[words * 2])
+                word_order.append(y)
+        y += 1
+    print(word_order)
+    return words
