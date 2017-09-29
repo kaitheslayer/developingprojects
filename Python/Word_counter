@@ -1,0 +1,21 @@
+# not including numbers
+def word_count(string):
+    string = string + " "
+    words = 0
+    y = 0
+    while y < len(string)-1:
+        if string[y].isalpha() and string[y+1] == " ":
+            words += 1
+        y += 1
+    return words
+
+# Includes numbers
+def word_count_no(string):
+    string = string + " "
+    words = 0
+    y = 0
+    while y < len(string)-1:
+        if string[y].isalnum() and string[y+1] == " ":
+            words += 1
+        y += 1
+    return words
