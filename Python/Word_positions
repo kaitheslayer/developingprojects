@@ -19,3 +19,14 @@ def word_count_no(string):
 # prints word order out as a list so that positioning of word 1 is [word_order[0] : word_order[1]
 # and positioning of word n is  [word_order[2n - 2) : word_order[n + (n - 1)]
 # that formula is based off a pattern I found (not immediatly obvious)
+
+
+def to_list (_):
+  return _.split()
+  
+def count_words (_):
+  return len(to_list(_))
+  
+  
+# Returns words in list to use pos, e.g to_list("wow hi") would return as ['wow', 'hi']
+# Counts words in text 
