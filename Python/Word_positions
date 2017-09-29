@@ -1,8 +1,3 @@
-
-# Attempt to add word positions to a list called word_order
-# Attempt Failed
-
-# Includes numbers
 def word_count_no(string):
     word_order = []
     string = string + " "
@@ -15,8 +10,12 @@ def word_count_no(string):
                 word_order.append(0)
                 word_order.append(y)
             else:
-                word_order.append(word_order[words * 2])
+                word_order.append(word_order[2 * words - 3] + 2)
                 word_order.append(y)
         y += 1
     print(word_order)
     return words
+
+# prints word order out as a list so that positioning of word 1 is [word_order[0] : word_order[1]
+# and positioning of word n is  [word_order[2n - 2) : word_order[n + (n - 1)]
+# that formula is based off a pattern I found (not immediatly obvious)
