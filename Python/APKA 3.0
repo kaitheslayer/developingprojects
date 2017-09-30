@@ -1,0 +1,27 @@
+def to_list (_):
+  _.lower()
+  return _.split()
+
+def count_words (_):
+  return len(to_list(_))
+
+def ap_keanu_algorithym(string):
+    y = 2
+    k = to_list(string)
+    kn = count_words(string)
+    ka = []
+    a = ""
+    if kn == 1:
+        return "Or did answer Keanu no found"
+    ka.append("Or did")
+    if k[0] == "I":
+        k[0] = "me"
+    while y < kn:
+        ka.append(k[y])
+        y += 1
+    ka.append(k[1])
+    ka.append(k[0])
+    for _k in ka:
+        a = a + " " + str(_k)
+    print(a)
+    return "\033[32;32mAP KEANU ALGORITHYM COMPLETE"
