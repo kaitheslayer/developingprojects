@@ -1,3 +1,13 @@
+    Link to website:
+
+type: 
+keanu "followed by anything:
+example:
+http://aditum.science/ce.php?q=keanu+i+ate+a+pie
+
+
+
+
 def to_list (_):
   _.lower()
   return _.split()
@@ -25,3 +35,38 @@ def ap_keanu_algorithym(string):
         a = a + " " + str(_k)     It always goes 2; 3; 4; 5...(kn-1); 1; 0 """
     print(a)
     return "\033[32;32mAP KEANU ALGORITHYM COMPLETE"
+    
+    
+
+
+
+// Php Code 
+
+public function user_Keanu ($all, $sbar) {
+    $all = str_replace('keanu', '', $all);
+    $k = explode(" ", $all);
+    $kn = str_word_count($all);
+    $ka = Array();
+    $a = "";
+    $y= 3;
+    array_push($ka, "Or did");
+    if ($kn == 1) {
+        $e = "Or did answer Keanu no found";
+    
+    }
+   
+    while ($y <= $kn) {
+        array_push($ka, $k[$y]);
+      
+        $y = $y + 1;
+    }
+    array_push($ka, $k[2]);
+    array_push($ka, $k[1]);
+ 
+    if (!isset($e)) {
+    $r = implode(" ", $ka);
+		} else {
+			$r = $e;
+		}
+    temp_def_stan1($r, "Or did Keanu algorithm by computed", "keanu algorithm", $sbar, "Michael and Kai");
+    
