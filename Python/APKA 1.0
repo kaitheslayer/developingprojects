@@ -1,0 +1,19 @@
+def ap_keanu_algorithym(string):
+    k = to_list(string)
+    kn = count_words(string)
+    ka = []
+    ka.append("Or did")
+    if kn == 4:
+        ka.append(k[2])
+        ka.append(k[3])
+        ka.append(k[1])
+        ka.append(k[0])
+    elif kn == 5:
+        ka.append(k[2])
+        ka.append(k[3])
+        ka.append(k[4])
+        ka.append(k[1])
+        ka.append(k[0])
+    for _k in ka:
+        print(_k)
+    return "\033[32;32mAP KEANU ALGORITHYM COMPLETE"
