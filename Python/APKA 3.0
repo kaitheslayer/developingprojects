@@ -16,12 +16,12 @@ def ap_keanu_algorithym(string):
     ka.append("Or did")
     if k[0] == "I":
         k[0] = "me"
-    while y < kn:
-        ka.append(k[y])
-        y += 1
-    ka.append(k[1])
-    ka.append(k[0])
-    for _k in ka:
-        a = a + " " + str(_k)
+    while y < kn:               """ if kn == 5:
+        ka.append(k[y])                 ka.append(k[2])  2
+        y += 1                          ka.append(k[3])  3
+    ka.append(k[1])                     ka.appand(k[4])  4 (5-1)
+    ka.append(k[0])                     ka.appand(k[1])  1
+    for _k in ka:                       ka.append(k[0])  0
+        a = a + " " + str(_k)     It always goes 2; 3; 4; 5...(kn-1); 1; 0 """
     print(a)
     return "\033[32;32mAP KEANU ALGORITHYM COMPLETE"
