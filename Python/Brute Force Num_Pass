@@ -1,0 +1,17 @@
+npass = input("Password: ")
+def tstart():
+    var = datetime.datetime.now()
+    return var
+def tend(i):
+    o = datetime.datetime.now() - i
+    return o
+# Example
+import datetime
+timer1 = tstart()
+x = 0
+while x <= npass:
+    if x == int(npass):
+        print("\033[32;32m Complete\n \033[37;37mPassword: " + str(x))
+    x += 1
+timerend = tend(timer1)
+print(" It took : " + str(timerend))
