@@ -1,0 +1,24 @@
+def tstart():
+    var = datetime.datetime.now()
+    return var
+def tend(i):
+    o = datetime.datetime.now() - i
+    return o
+import datetime
+timer1 = tstart()
+timerend = tend(timer1)
+
+npass = input("Password: ")
+npass = str(npass)
+r = 0
+n = 0
+rpass =[]
+while n < len(npass):
+    if str(r) == npass[n]:
+        n += 1
+        rpass.append(str(r))
+        r = 0
+    else:
+        r += 1
+
+print("\033[32;32mComplete\033[37m\nPassword = " + str(rpass) + "\n" + "Time: " + str(timerend))
