@@ -1,18 +1,50 @@
-original = raw_input("Enter a word: ")
-original = str(original)
-if len(original) > 0 and original.isalpha() is True:
-    word = original.lower()
-    new_word = word[1:len(word)] + word[0] + "ay"
-    print("Pig latin: " + new_word)
-else:
-    print ('empty')
+# Pyg_Latin Translator
 
+"""
+====================================
+Rules of Pig latin:
+1) word (no punctuation) (to allow punctuation remove "and n.isalpha()" from lines 22 and 40. Warning the result is nonsensical)
 
-def pyglatin_translator(word):
-    if len(word) > 0 and word.isaplha():
-        lword = word.lower()
-        pyg_word = lword[1:len(word)] + lword[0] + 'ay'
-        return pyg_word
-    else:
-        return 'empty'
+2) first letter goes to end
+   ordw
 
+3) add "ay"
+   ordway
+====================================
+"""
+
+# From text to pig latin
+def pyglatin_translator(sentence):
+    a = ""
+    final = []
+    sentence = sentence.split()
+    for n in sentence:
+        if len(n) > 0 and n.isalpha():
+            ln = n.lower()
+            pyg_word = ln[1:len(n)] + ln[0] + 'ay'
+            final.append(pyg_word)
+        else:
+            return 'empty'
+    for _p in final:
+        a = a + " " + str(_p)
+    return a
+
+print(pyglatin_translator("Is this a dagger which I see before me"))
+
+# From pig latin to text
+def pyglatin_translator_re(sentence):
+    a = ""
+    final = []
+    sentence = sentence.split()
+    for n in sentence:
+        if len(n) > 0 and n.isalpha():
+            ln = n.lower()
+            eng_word = str(ln[len(ln)-3]) + str(ln[0:len(ln)-3])
+            final.append(eng_word)
+        else:
+            return 'empty'
+    for _p in final:
+        a = a + " " + str(_p)
+    return a
+
+print(pyglatin_translator_re(pyglatin_translator("Is this a dagger which I see before me")))
