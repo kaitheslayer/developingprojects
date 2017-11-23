@@ -23,4 +23,47 @@ def qseq (qs1, qs2, qs3, qs4, qs5):
              a = ""
         return "Tn = %sn² + %sn + %s" % ( a, b, c)
     else:
-        print("This is not quadratic!")
+        return (gseq(ls1, ls2, ls3, ls4)
+
+def gseq(gs1, gs2, gs3, gs4)
+    v1=gs2/gs1
+
+def qseq (qs1, qs2, qs3, qs4, qs5):
+    if (qs5 - qs4) - (qs4 - qs3) == (qs3 - qs2) - (qs2 - qs1):
+        a = (qs3 - qs2) - (qs2 - qs1) / 2  # a = 2nd difference/2
+        b = (qs2 - qs1) - 3 * a # b = (T2 - T1)-3a
+        c = qs1 - (a - b)  # c = T1-(a+b)
+        if a == 1:
+             a = ""
+        return "Tn = %sn² + %sn + %s" % ( a, b, c)
+    else:
+        return (gseq(ls1, ls2, ls3, ls4)
+
+def gseq(gs1, gs2, gs3, gs4)
+    v1=gs2/gs1
+    v2=gs4/gs3
+    if v1==v2:
+        return("Tn = %s x %s^n-1" % (int(gs1), int(v1)))
+    else:
+        return "What is this sorcery!"
+
+def lseq(ls1, ls2, ls3, ls4):
+    if ls2 - ls1 == ls4 - ls3:
+        lsd1 = ls2 - ls1  # common difference
+        lsc = lsd1 - ls1  # constant e.g. Tn = xn + c
+        lsc = lsc * -1
+        # Fixes Bug
+        if lsc > 0:
+            lsc = "+" + str(lsc)
+        if lsc == 0:  # added to prevent problem where 0 is neither '+' or '-'. So a sequence: 1;2;3;4 -> Tn = n0
+            return ("Tn = %sn" % (lsd1))
+        else:
+            return ("Tn = %sn" % (lsd1) + ("%s" % (lsc)))
+
+    else:
+        return qseq(ls1, ls2, ls3, ls4
+    v2=gs4/gs3
+    if v1==v2:
+        return("Tn = %s x %s^n-1" % (int(gs1), int(v1)))
+    else:
+        return "What is this sorcery!"
