@@ -1,0 +1,56 @@
+"""
+Python Text Colour Commands
+=========================================================
+\033[Text Feature;Background colour;Text Colour
+
+\033[Background Colour;Text Feature;Text Colour
+
+\033[Background Colour;Text Colour
+
+\033[Text Feature;Text Colour
+=========================================================
+Text can be placed directly after colour command
+e.g.
+
+"\033[34mPython"
+=========================================================
+"""
+
+# Background Colour
+white_bg = "40"
+red_bg = "41"
+green_bg = "42"
+yellow_bg = "43"
+blue_bg = "44"
+magenta_bg = "45"
+cyan_bg = "46"
+grey_bg = "47"
+default_bg = ""
+
+# Text Colour
+default_tx = "0m"
+red_tx = "31m"
+green_tx = "32m"
+yellow_tx = "33m"
+blue_tx = "34m"
+magenta_tx = "35m"
+cyan_tx = "36m"
+grey_tx = "37m"
+
+# Special Text Features
+bold = "1"
+underline = "4"
+
+# Black Text + Colour background
+black = "\033[7;" + '[Text Colour]'
+# Text colour in this = background colour
+
+# Colour + Default Background
+white = "\033[0m"
+red = "\033[31m"
+green = "\033[32m"
+yellow = "\033[33m"
+blue = "\033[34m"
+magenta = "\033[35m"
+cyan = "\033[36m"
+grey = "\033[37m"
