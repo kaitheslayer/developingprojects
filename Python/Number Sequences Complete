@@ -1,0 +1,30 @@
+# A combination of all number sequence codes 
+def seq(ls1, ls2, ls3, ls4, ls5):
+    v1 = ls2/ls1
+    v2 = ls4/ls3
+    v3 = ls5/ls4
+    # Linear
+    if ls2 - ls1 == ls4 - ls3 == ls5 - ls4:
+        lsd1 = ls2 - ls1
+        lsc = lsd1 - ls1
+        lsc = lsc * -1
+        if lsc > 0:
+            lsc = "+" + str(lsc)
+        if lsc == 0:
+            return ("Tn = %sn" % (lsd1))
+        else:
+            return ("Tn = %sn" % (lsd1) + ("%s" % (lsc)))
+
+    # Quadratic
+    elif (ls5 - ls4) - (ls4 - ls3) == (ls3 - ls2) - (ls2 - ls1):    # :)
+        a = ((ls3 - ls2) - (ls2 - ls1)) / 2  # a = 2nd difference/2
+        b = (ls2 - ls1) - 3 * a # b = (T2 - T1)-3a
+        c = ls1 - (a + b)  # c = T1-(a+b)
+        if a == 1:
+             a = ""
+        return "Tn = %sn² + %sn + %s" % ( a, b, c)
+    # Geometric
+    elif v1 == v2 == v3:
+        return("Tn = %s x %s^n-1" % (int(ls1), int(v1)))
+    else:
+        return "What is this sorcery!"
