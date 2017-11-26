@@ -1,0 +1,95 @@
+# Rock, Paper, Scissors
+# Regular, compact
+from random import choice
+elements = ['Rock', 'Paper', 'Scissors']
+rules = {'r': 'Paper', 'p': 'Scissors', 's': 'Rock'}   # element : what beats element
+tie = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+x = "yes"
+round = 1
+while x == "yes":
+    # Enter r, p, s
+    pl = input("\033[36;36mRound " + str(round) + "\033[0m\nRock, Paper, Scissors ")
+    round += 1
+    # End Game Option
+    if pl != 'r' and pl != 'p' and pl != 's':
+        x = "no"
+        print("\033[31mGAME OVER")
+    else:
+        cm = choice(elements)
+        print("Computer chose " + cm)
+        if rules[pl] == cm:
+            print("\n\033[31;31mComputer Wins\033[0m\n")
+        elif tie[pl] == cm:
+            print("\n\033[32;32mIt's a tie\033[0m\n")
+        else:
+            print("\n\033[34;34mYou Win\033[0m\n")
+
+
+#   Rock, Paper, Scissors AI
+"""
+=============================================================================================================================
+For the first 10 round, player moves are saved to the list: pl_moves, and computer moves are random. [line 74-76]
+
+Round 11 onwards, computer plays the winning element against each move on pl_moves starting from item 0
+to item 9, then repeating. [line 65-72]
+
+Assuming player moves are in a reoccurring pattern, Computer will always win.
+
+From round 11, ai = True if computer wins, ergo pattern is constant, however if ai = False (player has changed pattern)
+pl_moves is cleared and a new list is generated. [line 94-95]
+=============================================================================================================================
+"""
+from random import choice
+elements = ['Rock', 'Paper', 'Scissors']
+rules = {'r': 'Paper', 'p': 'Scissors', 's': 'Rock'}   # element : what beats element
+tie = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+pl_moves = []
+x = "yes"
+y = 0
+round = 1
+ai = False
+
+print("\033[36;36mHow to Play:\033[0m\nType r, p or s to play Rock, Paper or Scissors\nType anything else to exit\n")
+
+# Start Game
+while x == "yes":
+    # Enter r, p, s
+    pl = input("\033[36;36mRound " + str(round) + "\033[0m\nRock, Paper, Scissors ")
+    round += 1
+    # End Game Option
+    if pl != 'r' and pl != 'p' and pl != 's':
+        x = "no"
+        print("\033[31mGAME OVER")
+    # Start Playing against pattern
+    else:
+        if len(pl_moves) == 10:
+
+            # if computer has gone through whole list, repeat
+            if y == 10:
+                y = 0
+            # Play counter element to pl_moves
+            cm = rules[pl_moves[y]]
+            y += 1
+        # Random Computer Play + Creation of pl_moves
+        else:
+            pl_moves.append(pl)
+            cm = choice(elements)
+        print("Computer chose " + cm)
+
+        # Determine Winner
+        if rules[pl] == cm:
+            print("\n\033[31;31mComputer Wins\033[0m\n")
+            if len(pl_moves) == 10:
+                ai = True
+        elif tie[pl] == cm:
+            print("\n\033[32;32mIt's a tie\033[0m\n")
+            if len(pl_moves) == 10:
+                ai = False
+        else:
+            print("\n\033[34;34mYou Win\033[0m\n")
+            if len(pl_moves) == 10:
+                ai = False
+
+        # Player has changed pattern
+        if len(pl_moves) == 10 and ai == False:
+            pl_moves.clear()
