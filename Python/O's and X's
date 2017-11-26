@@ -1,0 +1,107 @@
+"""
+===================================================================================================================
+O's and X's   | line reference = []
+===================================================================================================================
+Spaces are numbered 1 to 9 [13] then updated to either X, Player [38-41] or O, Computer [46-50].
+
+Computer's moves are random
+
+if space picked by player from input [28] is already taken (by X or O), variable spot_taken [19] = False,
+therefore neither player nor computer will move (while loop [18] restarts)
+
+Dictionary: values [33] assigned spots of different states with numbers. Empty spot = 0, Player spot X = 1,
+Computer spot O = 10.
+
+Using 'values' a win is decided by sum of values in a row, column or diagonal. If sum of row, column or diagonal
+= 3, Player Wins! [59-70]. If sum of row, column or diagonal = 30, Computer Wins [72-83]. Else it's a tie/draw
+===================================================================================================================
+"""
+
+
+from random import randint
+
+spaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+moves = 0
+x = "yes"
+
+while x == "yes":
+
+
+    #difficulty = input("Enter computer difficulty (easy, medium, hard").lower()
+    #while difficulty == "easy" or difficulty == "medium" or difficulty == "hard":
+
+        spot_taken = True
+
+        print("""
+    ;---;---;---;
+    | %s | %s | %s |
+    ;---;---;---;
+    | %s | %s | %s |
+    ;---;---;---;
+    | %s | %s | %s |
+    ;---;---;---;""" % (spaces[0], spaces[1], spaces[2], spaces[3], spaces[4], spaces[5], spaces[6], spaces[7], spaces[8]))
+
+# attempt to find strategy for computer
+# for numbers (n) in column 1:   n + 2 (if values[spaces[n + 1]] = 0, i.e. n + 1 is empty) , n + 4
+# for numbers (n) in column 2:   n + 1, n - 1, n + 4
+# for numbers (n) in column 3:   n - 1, n + 2, n + 3
+
+        pl = input("Choose a spot ")
+
+        values = {spaces[0]: 0, spaces[1]: 0, spaces[2]: 0, spaces[3]: 0, spaces[4]: 0, spaces[5]: 0, spaces[6]: 0, spaces[8]: 0}
+
+        for _e in range(0, 9):
+            # Player Move
+            if spaces[_e] == str(pl):
+                spaces[_e] = "\033[34mX\033[0m"
+                values[spaces[_e]] = 1
+            else:
+                print("This spot is taken!")
+                spot_taken = False
+
+        # Computer Move - Easy
+        while spot_taken == True: # and difficulty == "easy":
+            a = randint(0, 8)
+            if spaces[a] != "X":
+                spaces[a] = "\033[31mO\033[0m"
+                values[spaces[a]] = 10
+
+    # Computer Moves - Medium
+    # First Move
+       """ while spot_taken == True and difficulty == "medium" and moves == 0:
+            a = randint(0, 8)
+            if spaces[a] != "X":
+                spaces[a] = "\033[31mO\033[0m"
+                values[spaces[a]] = 10
+        # Second move onwards
+        while spot_taken == True and difficulty == "medium" and moves > 0:"""
+
+
+# Player Win - Rows
+        if values[spaces[0]] + values[spaces[1]] + values[spaces[2]] == 3 or values[spaces[3]] + values[spaces[4]] + values[spaces[5]] == 3 or values[spaces[6]] + values[spaces[7]] + values[spaces[8]] == 3:
+            x = "no"
+            print("\033[7;34mYou Win!")
+        # Player Win - Columns
+        elif values[spaces[0]] + values[spaces[3]] + values[spaces[6]] == 3 or values[spaces[2]] + values[spaces[4]] + values[spaces[7]] == 3 or values[spaces[2]] + values[spaces[5]] + values[spaces[8]] == 3:
+            x = "no"
+            print("\033[7;34mYou Win!")
+        # Player Win - Diagonals
+        elif values[spaces[0]] + values[spaces[4]] + values[spaces[8]] == 3 or values[spaces[2]] + values[spaces[4]] + values[spaces[6]] == 3:
+            x = "no"
+            print("\033[7;34mYou Win!")
+
+        # Computer Win - Rows
+        elif values[spaces[0]] + values[spaces[1]] + values[spaces[2]] == 30 or values[spaces[3]] + values[spaces[4]] + values[spaces[5]] == 30 or values[spaces[6]] + values[spaces[7]] + values[spaces[8]] == 30:
+            x = "no"
+            print("\033[7;31mComputer Wins!")
+        # Computer Win - Columns
+        elif values[spaces[0]] + values[spaces[3]] + values[spaces[6]] == 30 or values[spaces[2]] + values[spaces[4]] + values[spaces[7]] == 30 or values[spaces[2]] + values[spaces[5]] + values[spaces[8]] == 30:
+            x = "no"
+            print("\033[7;31mComputer Wins!")
+        # Computer Win - Diagonal
+        elif values[spaces[0]] + values[spaces[4]] + values[spaces[8]] == 30 or values[spaces[2]] + values[spaces[4]] + values[spaces[6]] == 30:
+            x = "no"
+            print("\033[7;31mComputer Wins!")
+        else:
+            x = "no"
+            print("\033[33mDraw")
