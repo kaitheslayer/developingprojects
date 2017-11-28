@@ -8,16 +8,21 @@ I started again...because...I can!
 Didn't include:
 - Ace = 1 or 11
 - If dealer or player score a blackjack (face card + ace) they win
-- line 46
-
+- line 64
+- Dealer playing hit, stand, bust
+==============================================================================================================
+Note:
 Variables used are simple and clearly explained by name
 e.g. player_cards
      dealer_first_card
 
-while this could be considered tedious, it makes code easier to read, and Pycharm's autofill means you don't 
+while this could be considered tedious, it makes code easier to read, and Pycharm's autofill means you don't
 need to type it out every time
 
 Sure, the '_variables' in for loops can stay :)
+==============================================================================================================
+Problems:
+Score Calculators aren't working
 ==============================================================================================================
 
 """
@@ -25,7 +30,7 @@ Sure, the '_variables' in for loops can stay :)
 
 from random import choice
 
-# Variables       
+# Variables
 cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 card_values = {'A': 11, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10}
 suits =['♥', '♠', '♣', '♦']
@@ -33,19 +38,32 @@ player_score = 0
 dealer_score = 0
 money = 2500
 x = 1
-
+dealer_cards_string = ""
+player_cards_string = ""
+dealer_first_card_string = ""
 # Start Game
 while x == 1:
     # Variables which reset each game
-    dealer_first_card = choice(cards) + choice(suits)
-    dealer_cards = dealer_first_card + choice(cards) + choice(suits)
-    player_cards = choice(cards) + choice(suits) + choice(cards) + choice(suits)
+    card = " "   # uses for: for loop
+    dealer_first_card = [choice(cards), choice(suits)]
+    # Cards - list
+    dealer_cards_list = [dealer_first_card, choice(cards), choice(suits)]
+    player_cards_list = [choice(cards), choice(suits), choice(cards), choice(suits)]
+    # Cards - string
+    for card in dealer_cards_list:
+        dealer_cards_string = dealer_cards_string + str(card)
 
-    print("You have $" + money)
-    bet = input("Enter Bet: (min = $1, max = $300")
+    for card in player_cards_list:
+        player_cards_string = player_cards_string + str(card)
+
+    for card in dealer_first_card:
+        dealer_first_card_string = dealer_first_card_string + str(card)
+
+    print("You have $" + str(money))
+    bet = input("Enter Bet: (min = $1, max = $300) ")
     # if 1 >= bet <= 300: leaving this out for now, to prevent indenting becoming confusing
     money -= int(bet)
-    print("Dealer hands you a " + player_cards + "\nHe reveals one of his cards to be a " + dealer_first_card)
+    print("Dealer hands you a " + player_cards_string + "\nHe reveals one of his cards to be a " + dealer_first_card_string)
     player_move = input("Stand, Hit, Double, Bust").lower()
 
     # Determining Player move
@@ -56,13 +74,13 @@ while x == 1:
 
     # Hit
     if player_move == 'hit':
-        player_cards += choice(cards) + choice(suits)
+        player_cards_list.append(choice(cards) + choice(suits))
 
     # Double
     if player_move == 'double':
         bet *= 2
         money -= bet
-        player_cards += choice(cards) + choice(suits)
+        player_cards_list.append(choice(cards) + choice(suits))
 
     # Bust
     if player_move == 'bust':
@@ -70,18 +88,24 @@ while x == 1:
 
     # Calculating Score - Player
     if player_move != 'bust':
-        for card in player_cards:
-            # not every second element in player_cards = a suit
-            if card % 2 != 0:
-                player_score += card_values[card]
+        for card in range(0, (len(player_cards_list) - 1)):
+            if card % 2 == 0:
+                player_score += card_values[player_cards_list[card]]
     else:
         print("Dealer Wins!")
         x = 0
 
     # Calculating Score - Dealer
-    for card in dealer_cards:
-        if card % 2 != 0:
-            dealer_score += card_values[card]
+    for card in range(0, (len(dealer_cards_list) - 1)):
+        if card % 2 == 0:
+            dealer_score += card_values[dealer_cards_list[card]]
+
+    # Update variable player_cards_string
+    for card in player_cards_list:
+        player_cards_string = player_cards_string + str(card)
+
+    print("Dealer has " + str(dealer_cards_list))
+    print("You have " + str(player_cards_list))
 
     # Determine winner
     if player_score > dealer_score:
