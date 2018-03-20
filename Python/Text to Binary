@@ -1,0 +1,46 @@
+def ascii(letter):
+    n = 97
+    values_l = {}
+    alpha_l = "abcdefghijklmnopqrstuvwxyz"
+    for alp in alpha_l:
+        values_l[alp] = n
+        n += 1
+
+    n = 65
+    values_u = {}
+    alpha_u = alpha_l.upper()
+    for alpu in alpha_u:
+        values_u[alpu] = n
+        n += 1
+
+    for val in values_l:
+        if letter == val:
+            letter = values_l[val]
+    for valu in values_u:
+        if letter == valu:
+            letter = values_u[valu]
+    return letter
+
+
+def binary(num):
+    bits = [128, 64, 32, 16, 8, 4, 2, 1]
+    b = []
+    for bit in bits:
+        if num >= bit:
+            b.append('1')
+            num = num - bit
+        else:
+            b.append('0')
+    return "".join(b)
+
+
+text = input("Enter Text: ")
+bin_text = []
+value = 0
+for let in text:
+    if let == " ":
+        value = 32
+    else:
+        value = ascii(let)
+    bin_text.append(binary(value))
+print(" ".join(bin_text))
