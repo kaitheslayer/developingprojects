@@ -1,0 +1,18 @@
+def hexdecimal(num):
+    hex =[]
+    n = 15
+    letters = ['A', 'B', 'C', 'D', 'E', 'F']
+    while n >= 0:
+        if num > 16 ** n:
+            if num//16**n > 9: 
+                hex.append(letters[num//16**n - 10])
+            else:
+                hex.append(str(num//16**n))
+            num = num - ((num//16**n) * 16**n)
+        n -= 1
+
+    return "".join(hex)
+
+
+print(hexdecimal(2018))
+
