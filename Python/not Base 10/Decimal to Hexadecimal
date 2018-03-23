@@ -1,0 +1,19 @@
+def hexadecimal(num):
+    hexa = []
+    n = 15
+    letters = ['A', 'B', 'C', 'D', 'E', 'F']
+    while n >= 0:
+        if num == 0:
+            hexa.append("0")
+        if num >= 16 ** n:
+            if num//16**n > 9:
+                hexa.append(letters[num//16**n - 10])
+            else:
+                hexa.append(str(num//16**n))
+            num -= ((num//16**n) * 16**n)
+        n -= 1
+
+    return "0x" + "".join(hexa)
+
+
+print(hexadecimal(2018))
