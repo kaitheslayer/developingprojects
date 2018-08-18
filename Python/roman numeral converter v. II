@@ -1,3 +1,5 @@
+# incomplete
+
 def decimal(number):
   deci = []
   # convert number to string
@@ -14,3 +16,21 @@ def decimal(number):
   return deci
 
 print(decimal(2118))   
+
+"""
+btw:
+
+I = 1
+V = 5
+X = 10
+L = 50
+C = 100
+D = 500
+M = 1000
+that should be enough
+
+e.g. 2375 = MMCCCLXXV
+     3 = III, 8 = VIII
+     4 = IV, 9 = IX
+     2018 = MMXVIII
+"""
