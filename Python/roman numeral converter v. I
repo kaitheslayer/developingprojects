@@ -1,0 +1,16 @@
+def decimal(number):
+  deci = []
+  # convert number to string
+  number = str(number)
+  # take each digit in str(number): convert back to number, then add to list, deci
+  for letter in number:
+    letter = int(letter)
+    deci.append(letter)
+  # convert each digit to its decimal value e.g. in 2118: 2 -> 2000, 1 -> 100, 1 -> 10, 8 -> 8
+  for n in range(0, (len(deci) - 1)):
+    power = (len(deci) - 1) - n
+    deci[n] = deci[n] * (10 ** power)
+      
+  return deci
+
+print(decimal(2118))   
