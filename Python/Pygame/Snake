@@ -1,0 +1,103 @@
+import pygame
+
+pygame.init()
+
+# colour variables
+white = (255, 255, 255)
+black = (0, 0, 0)
+red = (255, 0, 0)
+
+# game window dimensions
+display_width = 800
+display_height = 600
+
+
+# player
+block_size = 10
+
+# FPS
+FPS = 30
+clock = pygame.time.Clock()
+
+# Text
+font = pygame.font.SysFont(None, 25)
+
+# Creating game window
+game_display = pygame.display.set_mode((display_width,display_height))
+pygame.display.set_caption("Slither")
+
+def message_to_screen(msg, colour):
+    screen_text = font.render(msg, True, colour)
+    game_display.blit(screen_text, [display_width/2, display_height/2])
+
+def game_loop():
+    game_exit = False
+    game_over = False
+
+    # player coordinates/movement
+    lead_x = display_width/2
+    lead_y = display_height/2
+    lead_x_change = 0
+    lead_y_change = 0
+
+    while not game_exit:
+
+        while game_over == True:
+            game_display.fill(white)
+            message_to_screen("Game over, press C to play again or Q to quit", red)
+            pygame.display.update()
+
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        game_exit = True
+                        game_over = False
+                    if event.key == pygame.K_c:
+                        game_loop()
+
+
+        for event in pygame.event.get():
+            # EXIT game
+            if event.type == pygame.QUIT:
+                game_exit = True
+            # key pressing detection
+            if event.type == pygame.KEYDOWN:
+                # left/right movement
+                if event.key == pygame.K_LEFT:
+                     lead_x_change = -1 * block_size
+                     lead_y_change = 0
+
+                elif event.key == pygame.K_RIGHT:
+                    lead_x_change = block_size
+                    lead_y_change = 0
+
+                # up/down movement
+                elif event.key == pygame.K_UP:
+                     lead_y_change = -1 * block_size
+                     lead_x_change = 0
+
+                elif event.key == pygame.K_DOWN:
+                    lead_y_change = block_size
+                    lead_x_change = 0
+        # boundary
+        if lead_x >= display_width or lead_x < 0 or lead_y >= display_height or lead_y < 0:
+                game_over = True
+
+        # move player
+        lead_x += lead_x_change
+        lead_y += lead_y_change
+
+        # draw objects
+        game_display.fill(white)
+        pygame.draw.rect(game_display, black, [lead_x, lead_y, block_size, block_size])
+
+        # render display
+        pygame.display.update()
+
+        clock.tick(FPS)
+
+
+    pygame.quit()
+    quit()
+
+game_loop()
