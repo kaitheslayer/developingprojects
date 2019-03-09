@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -26,6 +27,11 @@ font = pygame.font.SysFont(None, 25)
 game_display = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption("Slither")
 
+def snake(block_size, snake_list):
+    for XnY in snake_list:
+        pygame.draw.rect(game_display, black, [XnY[0], XnY[1], block_size, block_size])
+
+
 def message_to_screen(msg, colour):
     screen_text = font.render(msg, True, colour)
     game_display.blit(screen_text, [display_width/2, display_height/2])
@@ -39,6 +45,15 @@ def game_loop():
     lead_y = display_height/2
     lead_x_change = 0
     lead_y_change = 0
+
+    snake_list = []
+    snake_length = 10
+
+    # Apple coordinates
+        # " - block_size " because top left corner of rect = coord
+        # coords rounded to nearest 10, so as to be in same grid as player
+    rand_apple_x = round(random.randrange(0, display_width - block_size)/10) * 10
+    rand_apple_y = round(random.randrange(0, display_height - block_size)/10) * 10
 
     while not game_exit:
 
@@ -89,10 +104,30 @@ def game_loop():
 
         # draw objects
         game_display.fill(white)
-        pygame.draw.rect(game_display, black, [lead_x, lead_y, block_size, block_size])
+        # apple
+        pygame.draw.rect(game_display, red, [rand_apple_x, rand_apple_y, block_size, block_size])
+
+        # player
+        snake_head = []
+        snake_head.append(lead_x)
+        snake_head.append(lead_y)
+        snake_list.append(snake_head)
+
+        if len(snake_list) > snake_length:
+            del snake_list[0]
+
+
+        snake(block_size, snake_list)
 
         # render display
         pygame.display.update()
+
+        # player-apple collision
+        if lead_x == rand_apple_x and lead_y == rand_apple_y:
+            rand_apple_x = round(random.randrange(0, display_width - block_size)/10) * 10
+            rand_apple_y = round(random.randrange(0, display_height - block_size)/10) * 10
+
+
 
         clock.tick(FPS)
 
