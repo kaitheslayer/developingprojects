@@ -1,0 +1,227 @@
+
+"""
+Current problem:
+
+in order for snake to spawn with a length greater than 1 (which looks nice), player must be allowed to run into self
+by moving left-to-right or up-to-down, until an apple is eaten i.e. score > 1. This is because snake self collision must be off
+when longer-than-one snake spawns in, otherwise player dies instantly because all snake blocks occupy the same position (alt.
+instead of using "when score > 0" could make this collision off for first few seconds of playing until snake has slithered out
+to it's full length. But that's a whole new variable that only serves one purpose, and oh well!)
+This problem can be fixed when such left-right/up-down movement is restricted (will need to code this in). As a result minimum
+starting snake length must not be long enough such that it is possible for snake to spriral into itself. This length is
+3 (as set below), 4 does not work this can be proved if you play at 2fps, it is possible to spiral into self.
+Basically just leave it as 3 and code that move restriction thing. Then you can delete this essay.
+
+"""
+
+import pygame
+import random
+
+pygame.init()
+
+# colour variables
+white = (255, 255, 255)
+black = (0, 0, 0)
+red = (255, 0, 0)
+dark_grey = (46, 46, 46)
+green = (0, 155, 0)
+
+# game window dimensions
+display_width = 800
+display_height = 600
+
+img = pygame.image.load('snakehead_sprite.png')
+
+# player
+block_size = 10
+
+# FPS
+FPS = 15
+clock = pygame.time.Clock()
+
+direction = "right"
+
+# Text
+#font_size = 25
+smallfont = pygame.font.SysFont("Arial Black", 25)
+medfont = pygame.font.SysFont("Arial Black", 50)
+largefont = pygame.font.SysFont("Arial Black", 80)
+
+# Creating game window
+game_display = pygame.display.set_mode((display_width,display_height))
+pygame.display.set_caption("Snake")
+
+def snake(block_size, snake_list):
+
+    if direction == "right":
+        head = pygame.transform.rotate(img, 270)
+
+    if direction == "left":
+        head = pygame.transform.rotate(img, 90)
+
+    if direction == "up":
+        head = img
+
+    if direction == "down":
+        head = pygame.transform.rotate(img, 180)
+
+    game_display.blit(head, (snake_list[-1][0], snake_list[-1][1]))
+    for XnY in snake_list[:-1]:
+        pygame.draw.rect(game_display, green, [XnY[0], XnY[1], block_size, block_size])
+
+
+def text_objects(text, colour, size):
+    if size == "small":
+        textSurface = smallfont.render(text, True, colour)
+    elif size == "medium":
+        textSurface = medfont.render(text, True, colour)
+    elif size == "large":
+        textSurface = largefont.render(text, True, colour)
+
+    return textSurface, textSurface.get_rect()
+
+
+def message_to_screen_center(msg, colour, distance_from_center = 0, size = "small"):
+    textSurf, textRect = text_objects(msg, colour, size)
+    textRect.center = (display_width/2), (display_height/2) + distance_from_center
+    game_display.blit(textSurf, textRect)
+
+def message_to_screen(msg, colour, x, y):
+    screen_text = smallfont.render(msg, True, colour)
+    game_display.blit(screen_text, [x, y])
+
+
+def game_loop():
+    global direction
+    game_exit = False
+    game_over = False
+
+    # player coordinates/movement
+    lead_x = display_width/2
+    lead_y = display_height/2
+    lead_x_change = 0
+    lead_y_change = 0
+
+    snake_list = []
+    snake_length = 3
+
+    # Apple coordinates
+        # " - block_size " because top left corner of rect = coord
+        # coords rounded to nearest 10, so as to be in same grid as player
+    rand_apple_x = round(random.randrange(0, display_width - block_size)/block_size) * block_size
+    rand_apple_y = round(random.randrange(0, display_height - block_size)/block_size) * block_size
+
+    score = 0
+
+    while not game_exit:
+
+        while game_over == True:
+            game_display.fill(white)
+            message_to_screen_center("Game over",
+                                     red,
+                                     -50,
+                                     size = "large")
+            message_to_screen_center("press C to play again or Q to quit",
+                                     black,
+                                     50,
+                                     size = "medium")
+            message_to_screen_center("Score: %s" %str(score),
+                                     black,
+                                     100,
+                                     size = "small")
+            pygame.display.update()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    game_exit = True
+                    game_over = False
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        game_exit = True
+                        game_over = False
+                    if event.key == pygame.K_c:
+                        game_loop()
+
+
+        for event in pygame.event.get():
+            # EXIT game
+            if event.type == pygame.QUIT:
+                game_exit = True
+            # key pressing detection
+            if event.type == pygame.KEYDOWN:
+                # left/right movement
+                if event.key == pygame.K_LEFT:
+                     direction = "left"
+                     lead_x_change = -1 * block_size
+                     lead_y_change = 0
+
+                elif event.key == pygame.K_RIGHT:
+                    direction = "right"
+                    lead_x_change = block_size
+                    lead_y_change = 0
+
+                # up/down movement
+                elif event.key == pygame.K_UP:
+                     direction = "up"
+                     lead_y_change = -1 * block_size
+                     lead_x_change = 0
+
+                elif event.key == pygame.K_DOWN:
+                    direction = "down"
+                    lead_y_change = block_size
+                    lead_x_change = 0
+        # boundary
+        if lead_x >= display_width or lead_x < 0 or lead_y >= display_height or lead_y < 0:
+                game_over = True
+
+        # move player
+        lead_x += lead_x_change
+        lead_y += lead_y_change
+
+        # fill display
+        game_display.fill(white)
+        # apple
+        pygame.draw.rect(game_display, red, [rand_apple_x, rand_apple_y, block_size, block_size])
+
+        # player
+        snake_head = []
+        snake_head.append(lead_x)
+        snake_head.append(lead_y)
+
+        snake_list.append(snake_head)
+
+        if len(snake_list) > snake_length:
+            del snake_list[0]
+
+        # snake collides with self
+            # [:-1] -> means every element except last one (which is snake head)
+        sum = 0
+        for each_segment in snake_list[:-1]:
+            if each_segment == snake_head and score > 0:
+                game_over = True
+
+
+        snake(block_size, snake_list)
+
+        message_to_screen("Score: %s" %str(score), black, 10, 10)
+
+        # render display
+        pygame.display.update()
+
+        # player-apple collision
+        if lead_x == rand_apple_x and lead_y == rand_apple_y:
+            # apple coord rounded by nearest ten, so as to be in same grid as snake
+            rand_apple_x = round(random.randrange(0, display_width - block_size)/10) * 10
+            rand_apple_y = round(random.randrange(0, display_height - block_size)/10) * 10
+            snake_length += 1
+            score += 1
+
+        clock.tick(FPS)
+
+
+    pygame.quit()
+    quit()
+
+game_loop()
+# high score: 38
