@@ -31,12 +31,13 @@ display_width = 800
 display_height = 600
 
 img = pygame.image.load('snakehead_sprite.png')
+img2 = pygame.image.load('snaketail_sprite.png')
 
 # player
 block_size = 10
 
 # FPS
-FPS = 15
+FPS = 30
 clock = pygame.time.Clock()
 
 direction = "right"
@@ -52,22 +53,51 @@ game_display = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption("Snake")
 
 def snake(block_size, snake_list):
+    head = img
+    tail = img2
+    sum_x = 0
+    sum_y = 0
+    # tail orientation, if all blocks within snake are in a straight line then rotate to that direction
+    # this of course does not work if snake is long enough to turn twice and make a 'U' shape.
+    for element in snake_list:
+        sum_x += element[0]
+        sum_y += element[1]
+    if sum_x == len(snake_list) * snake_list[0][0]:
+        x_equal = True
+    else:
+        x_equal = False
 
+    if sum_y == len(snake_list) * snake_list[0][1]:
+        y_equal = True
+    else:
+        y_equal = False
+
+    # head sprite orientation
     if direction == "right":
         head = pygame.transform.rotate(img, 270)
+        if y_equal is True:
+            tail = pygame.transform.rotate(img2, 270)
 
     if direction == "left":
         head = pygame.transform.rotate(img, 90)
+        if y_equal is True:
+            tail = pygame.transform.rotate(img2, 90)
 
     if direction == "up":
         head = img
-
+        if x_equal is True:
+            tail = img2
     if direction == "down":
         head = pygame.transform.rotate(img, 180)
+        if x_equal is True:
+            tail = pygame.transform.rotate(img2, 180)
 
     game_display.blit(head, (snake_list[-1][0], snake_list[-1][1]))
-    for XnY in snake_list[:-1]:
+    game_display.blit(tail, (snake_list[0][0], snake_list[0][1]))
+
+    for XnY in snake_list[1:len(snake_list)-1]:
         pygame.draw.rect(game_display, green, [XnY[0], XnY[1], block_size, block_size])
+
 
 
 def text_objects(text, colour, size):
@@ -103,7 +133,7 @@ def game_loop():
     lead_y_change = 0
 
     snake_list = []
-    snake_length = 3
+    snake_length = 4
 
     # Apple coordinates
         # " - block_size " because top left corner of rect = coord
