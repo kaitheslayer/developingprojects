@@ -93,7 +93,7 @@ def snake(block_size, snake_list):
             tail = pygame.transform.rotate(img2, 180)
 
     game_display.blit(head, (snake_list[-1][0], snake_list[-1][1]))
-    game_display.blit(tail, (snake_list[0][0], snake_list[0][1]))
+    #game_display.blit(tail, (snake_list[0][0], snake_list[0][1]))
 
     for XnY in snake_list[1:len(snake_list)-1]:
         pygame.draw.rect(game_display, green, [XnY[0], XnY[1], block_size, block_size])
