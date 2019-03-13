@@ -10,12 +10,14 @@ red = (255, 0, 0)
 dark_grey = (46, 46, 46)
 green = (0, 155, 0)
 
+
 # game window dimensions
 display_width = 800
 display_height = 600
 
 img = pygame.image.load('snakehead_sprite.png')
 img2 = pygame.image.load('snaketail_sprite.png')
+img3 = pygame.image.load('apple_sprite.png')
 
 # player
 block_size = 10
@@ -27,7 +29,7 @@ clock = pygame.time.Clock()
 direction = ""
 
 # Text
-#font_size = 25
+# font_size = 25
 smallfont = pygame.font.SysFont("Arial Black", 25)
 medfont = pygame.font.SysFont("Arial Black", 50)
 largefont = pygame.font.SysFont("Arial Black", 80)
@@ -196,7 +198,9 @@ def game_loop():
         # fill display
         game_display.fill(white)
         # apple
-        pygame.draw.rect(game_display, red, [rand_apple_x, rand_apple_y, block_size, block_size])
+        #pygame.draw.rect(game_display, red, [rand_apple_x, rand_apple_y, block_size, block_size])
+        game_display.blit(img3, (rand_apple_x, rand_apple_y))
+
 
         # player
         snake_head = []
